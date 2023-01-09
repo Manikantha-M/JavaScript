@@ -1,0 +1,6 @@
+// external js
+document.querySelectorAll('.btn').forEach((item) => {
+  item.addEventListener('click', () => {
+    alert('this is awesome');
+  });
+});
