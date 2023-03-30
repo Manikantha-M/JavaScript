@@ -6,14 +6,11 @@ function createPerson(firstName, lastName) {
     firstName: firstName,
     lastName: lastName,
     fullName() {
-      console.log(`I am ${firstName} ${lastName}`);
+      console.log(`I am ${this.firstName} ${this.lastName}`);
     },
   };
 }
 const john = createPerson('john', 'smilga');
-const mani = createPerson('Mani', 'M');
 console.log(john);
-console.log(mani);
-
 john.fullName();
-mani.fullName();
+
