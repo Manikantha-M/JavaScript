@@ -1,19 +1,20 @@
-// Factory Function
-/* A factory function is a function that returns a new object. */
+// Constructor function
+/*
+Constructor function is used to create new objects.
+function name starts with a capital letter - convention.
+new keyword must be used. 
+*/
 
-function createPerson(firstName, lastName) {
-  return {
-    firstName: firstName,
-    lastName: lastName,
-    fullName() {
-      console.log(`I am ${firstName} ${lastName}`);
-    },
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.fullName = function () {
+    console.log(`I am ${firstName} ${lastName}`);
   };
 }
-const john = createPerson('john', 'smilga');
-const mani = createPerson('Mani', 'M');
+const john = new Person('john', 'smilga');
+const mani = new Person('Mani', 'M');
 console.log(john);
 console.log(mani);
-
 john.fullName();
 mani.fullName();
