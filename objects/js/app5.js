@@ -2,7 +2,7 @@
 /*
 Constructor function creates a new object using this keyword.
 It is a common practice to use CapitalCase for naming a Constructor  function.
-To create a new object using constructor function use new keyword.
+To create a new object using Constructor function use new keyword.
 */
 
 function Person(firstName, lastName) {
