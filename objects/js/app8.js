@@ -1,7 +1,7 @@
-// ES6 Class
+// ES6 class
 /*
-ES6 Class is a syntactic sugar for Prototypal Inheritance.
-Class creates a new object.
+ES6 class is a syntactic sugar for Prototypal Inheritance.
+class creates a new object.
 */
 
 class Account{
