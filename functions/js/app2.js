@@ -16,6 +16,7 @@ Now if we try to access variable a before the line where it is declared, we will
 
 console.log(c);
 var c = 10;
+
 greet();
 function greet(){
     console.log('Hello world');
