@@ -1,5 +1,5 @@
 /*
-Arrow Functions
+Arrow Function Basics
 */
 
 const sayHi = () => console.log('Hi');
