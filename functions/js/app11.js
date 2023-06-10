@@ -1,4 +1,4 @@
-// Swap Variables
+// Swap Variables using Array Destructuring
 
 let a = 'bob';
 let b = 'john';
