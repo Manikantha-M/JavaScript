@@ -68,3 +68,44 @@ Arrow functions cannot be used as constructors and will throw an error when call
 
 The yield keyword cannot be used in an arrow function's body (except when used within generator functions further nested within the arrow function). As a consequence, arrow functions cannot be used as generators.
 */
+
+
+const anna = {
+  firstName:"anna",
+  lastName:"sanders",
+  sayName:()=>{
+    console.log(this);
+    console.log(`Hello, my name is ${this.firstName} ${this.lastName}`);
+  }
+}
+anna.sayName();
+
+const btn = document.getElementById('btn');
+
+// Traditional call back function expression
+// btn.addEventListener('click', function(){
+//   console.log(this);
+//   this.style.color = 'black';
+// })
+
+// Arrow function will throw error
+// btn.addEventListener('click', ()=>{
+//   console.log(this);
+//   this.style.color = 'black';
+// })
+
+// Traditional call back function expression case 2:
+// btn.addEventListener('click', function(){
+//   console.log(this);
+//   setTimeout(function(){
+//     this.style.color = 'black';
+//   },3000)
+// })
+
+// Arrow function fixes the case 2:
+btn.addEventListener('click', function(){
+  console.log(this);
+  setTimeout(()=>{
+    this.style.color = 'black';
+  },3000)
+})
