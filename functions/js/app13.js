@@ -10,11 +10,12 @@ console.log(employee.startsWith('EM',6));
 
 // endsWith() -> case sensitive
 console.log(manager.endsWith('DOE'));
-console.log(manager.endsWith('MAN', 9)); // -> Negative index
+// Here the index is the index of searchString's last character plus 1.
+console.log(manager.endsWith('MAN',9));  // 8 + 1
 
 // includes()  -> case sensitive
 console.log(employee.includes('PET'));
 
 // repeat()
-const multiplyPeople = (person, times=5) => person.repeat(times);
+const multiplyPeople = (person, times=2) => person.repeat(times);
 console.log(multiplyPeople(person));
