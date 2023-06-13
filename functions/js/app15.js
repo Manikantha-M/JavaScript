@@ -1,4 +1,5 @@
 /* Spread operator 
+Spread syntax expands an array into its elements.
 Used to copy JavaScript objects without referencing.
 */
 
