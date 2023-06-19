@@ -1,4 +1,4 @@
-/* array.find(), array.filter() array.findIndex(), array.every(), array.some() */
+/* array.find(), array.filter(), array.findIndex(), array.every(), array.some() */
 
 const people = [
     {name:'john'},
