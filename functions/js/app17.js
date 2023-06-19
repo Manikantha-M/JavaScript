@@ -19,3 +19,8 @@ function countTotal(){
     console.log(Array.from(arguments))
 }
 countTotal(67,54,89);
+
+const text = Array.from(document.querySelectorAll('p'),(item)=>{
+    return item.textContent;
+});
+console.log(text)
