@@ -15,3 +15,7 @@ console.log(unique);
 console.log(unique.has('first'));
 unique.clear();
 console.log(unique)
+
+const array = ['ikea','marcos','caressa','ikea'];
+const uniqueArr = [...new Set(array)];
+console.log(uniqueArr)
