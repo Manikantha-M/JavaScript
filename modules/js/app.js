@@ -1,8 +1,8 @@
-// Named export
 // import { random } from "../utils/data.js";
 // import { people } from "../utils/data.js";
 import { random, people  } from "../utils/data.js";
-
+import whatever from '../utils/data2.js';
+import getEle from '../utils/data3.js';
 
 // const container = document.querySelector('.container');
 // const btn = document.querySelector('.btn');
@@ -19,4 +19,6 @@ import { random, people  } from "../utils/data.js";
 //     showPeople()
 // })
 console.log(random);
-console.log(people)
+console.log(people);
+console.log(whatever('Mani'));
+console.log(getEle('.container'));
