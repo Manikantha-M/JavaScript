@@ -4,18 +4,20 @@ An async function declaration creates an AsyncFunction object. Each time when an
 Using await pauses the execution of its surrounding async function until the promise is settled (that is, fulfilled or rejected). When execution resumes, the value of the await expression becomes that of the fulfilled promise. If the promise is rejected, the await expression throws the rejected value.
 */
 
-// Promises DOM example
-
 const heading1 = document.querySelector('.one');
 const heading2 = document.querySelector('.two');
 const heading3 = document.querySelector('.three');
-const btn = document.querySelector('.btn');
+// const btn = document.querySelector('.btn');
 
 async function setColor(){
-    await addColor(1000, heading1, 'red');
-    await addColor(1000, heading2, 'green');
-    await addColor(1000, heading3, 'blue');
-    console.log('Ran set color')
+    try {
+        await addColor(1000, heading1, 'red');
+        await addColor(1000, heading2, 'green');
+        await addColor(1000, heading3, 'blue');
+    } catch (error) {
+        console.log(error)
+    }
+    return 'Ran set color';
 }
 
 function addColor(time, element, color) {
@@ -35,7 +37,7 @@ function printNum(n){
 }
 
 console.log('Run set Color')
-setColor();
+setColor().then(value => console.log(value));
 console.log('Run Hello world')
 
 console.log('start printing num')
