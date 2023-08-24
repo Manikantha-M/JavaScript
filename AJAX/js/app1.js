@@ -6,19 +6,26 @@ XMLHttpRequest is used heavily in AJAX programming.
 Despite its name, XMLHttpRequest can be used to retrieve any type of data, not just XML.
 */
 
-const xhr = new XMLHttpRequest();
+const btn = document.getElementById('btn')
+function showText(){
+    const xhr = new XMLHttpRequest();
 
-xhr.open('GET', './utils/sample.txt');
-xhr.onreadystatechange = () => {
-    if(xhr.readyState===4 && xhr.status===200){
-        const text = document.createElement('p');
-        text.textContent = xhr.responseText;
-        document.body.appendChild(text);
-        console.log({
-            status:xhr.status,
-            text:xhr.statusText
-        })
-    }
-};
-xhr.send();
+    xhr.open('GET', './utils/sample.txt');
+    xhr.onreadystatechange = () => {
+        if(xhr.readyState===4 && xhr.status===200){
+            const text = document.createElement('p');
+            text.textContent = xhr.responseText;
+            document.body.appendChild(text);
+            console.log({
+                status:xhr.status,
+                text:xhr.statusText
+            })
+        }
+    };
+    xhr.send();
+}
+
+btn.addEventListener('click', ()=>{
+    showText()
+})
 console.log('Hello world')
