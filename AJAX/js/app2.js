@@ -36,9 +36,9 @@ const btn = document.getElementById('btn');
 
 
 // try...catch...finally
-const txt = '{"msg":"hello world"}';
+const jsonStr = '{"msg":"hello world"}';
 try {
-    console.log(JSON.parse(txt));
+    console.log(JSON.parse(jsonStr));
 } catch (error) {
     console.log(error);
 } finally{
@@ -57,6 +57,6 @@ btn.addEventListener('click', async () => {
         const data = await response.text();
         console.log(data);
     } catch (error) {
-        console.error('Fetch error:', error);
+        console.log('Fetch error:', error);
     }
 });
