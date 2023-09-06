@@ -15,10 +15,25 @@ const getElement = (selection) => {
   throw new Error(`Please check "${selection}" selector, no such element exist`)
 }
 
-const formatPrice = () => {}
+const formatPrice = (price) => {
+  let formatPrice = new Intl.NumberFormat("en-US", {
+    style:"currency", currency:"USD"
+  }).format((price/100).toFixed(2));
+  return formatPrice;
+}
 
-const getStorageItem = () => {}
-const setStorageItem = () => {}
+const getStorageItem = (item) => {
+  let storageItem = sessionStorage.getItem(item);
+  if(storageItem){
+    storageItem = JSON.parse(storageItem)
+  }else{
+    storageItem = [];
+  }
+  return storageItem;
+}
+const setStorageItem = (name, item) => {
+  sessionStorage.setItem(name, JSON.stringify(item));
+}
 
 export {
   allProductsUrl,
