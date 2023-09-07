@@ -22,7 +22,13 @@ const display = (products, element) => {
           <h4 class="product-price">${formatPrice(price)}</h4>
         </footer>
       </article>`
-    }).join("")
+    }).join("");
+    element.addEventListener("click", (e)=> {
+      const parent = e.target.parentElement;
+      if(parent.classList.contains("product-cart-btn")){
+        addToCart(parent.dataset.id)
+      }
+    })
 };
 
 export default display;
