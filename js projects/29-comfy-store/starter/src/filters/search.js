@@ -18,9 +18,9 @@ const setupSearch = (store) => {
                 products.innerHTML = `<h3 class="filter-error">Sorry, no products matched your search</h3>`;
                 return
             }
-            display(newStore, getElement(".products-container"));
+            display(newStore, getElement(".products-container"), true);
         }else{
-            display(store, getElement(".products-container"))
+            display(store, getElement(".products-container"), true)
         }
     })
 };
