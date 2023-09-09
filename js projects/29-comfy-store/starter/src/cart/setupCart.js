@@ -17,8 +17,8 @@ let cart = getStorageItem("cart");
 const init = () => {
   displayCartItemCount();
   displayCartTotal();
-  setupCartFunctionality();
   displayCartItemsDOM();
+  setupCartFunctionality();
 }
 export const addToCart = (id) => {
   const item = cart.find(cartItem => cartItem.id === id);
@@ -28,20 +28,63 @@ export const addToCart = (id) => {
     cart = [...cart, product];
     addToCartDOM(product);
   }else{
-
+    const amount = increaseAmount(id);
+    const items = [...cartItemsDOM.querySelectorAll(".cart-item-amount")];
+    const newAmount = items.find(value => value.dataset.id === id);
+    newAmount.textContent = amount;
   }
-  setStorageItem("cart", cart);
+  
   displayCartItemCount();
   displayCartTotal();
+  setStorageItem("cart", cart);
   openCart();
 };
+function removeItem(id){
+  cart = cart.filter(cartItem => cartItem.id != id)
+}
+
+function increaseAmount(id){
+  
+  let newAmount;
+  cart = cart.map(cartItem => {
+    if(cartItem.id === id){
+      newAmount = cartItem.amount+1
+      cartItem = {...cartItem, amount:cartItem.amount + 1}
+    }
+    return cartItem
+  })
+  return newAmount;
+}
 function displayCartItemsDOM(){
   cart.forEach(cartItem => {
     addToCartDOM(cartItem)
   })
 }
 function setupCartFunctionality(){
+  cartItemsDOM.addEventListener("click", (e)=>{
+    const element = e.target;
+    const parent = e.target.parentElement;
+    const id = e.target.dataset.id;
+    const parentID = e.target.parentElement.dataset.id;
+    // remove
+    if(element.classList.contains("cart-item-remove-btn")){
+      removeItem(id);
+      parent.parentElement.remove();
+    }
+    // increase
+    if(parent.classList.contains("cart-item-increase-btn")){
+      console.log(e.target.parentElement)
+      const newAmount = increaseAmount(parentID);
+      parent.nextElementSibling.textContent = newAmount;
+    }
+    
+    // decrease
+    displayCartItemCount();
+    displayCartTotal();
+    setStorageItem("cart", cart);
 
+
+  }) 
 }
 function displayCartTotal(){
   let total = cart.reduce((total,cartItem)=>{
